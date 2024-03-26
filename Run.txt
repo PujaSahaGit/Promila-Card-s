@@ -1,0 +1,57 @@
+for run
+( cd .\ecommerce\
+python manage.py runserver
+ctrl+click link )
+
+
+for start project
+
+django-admin startproject ecommerce
+cd .\ecommerce\
+python manage.py startapp ecommerceapp
+python manage.py runserver
+python manage.py startapp auth
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser(2nd terminal for admin user)
+pip install django-six(3rd terminal)
+pip install pillow(command prompt)
+pip install pycryptodome
+
+
+(ctrl+c =close the server)
+
+
+
+admin
+user/email-puja@gmail.com
+pass-123
+
+
+
+
+for getting mail-
+you have to own professional mail id(that is got by purchasing domain like google workspace etc.)
+otherwise you don't get mail.[need to edit these lines in settings.py(116)-
+#EMAIL_HOST='smtpout.secureserver.net'
+# EMAIL_HOST_USER='hr@airobotica.in'
+# EMAIL_HOST_PASSWORD=''
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='pujasaha2520@gmail.com'
+EMAIL_HOST_PASSWORD='622501@puja']
+[
+    authcart\views.py-109,110,47(uncomment)
+]
+[
+    main.js-15,132,139(uncomment)
+]
+
+this link used for less secure app access-https://myaccount.google.com/u/1/lesssecureapps?pli=1&rapt=AEjHL4PEeKu14orVRwspH4bUD41Hf_tl6WbuA7_LBg7zOfwByHwVdXeW7ODD0ufAs8DApgBVoAO3CzukCXGW9hbYJ_zT3lt7tvDQlhA_8wZVeW5mO3FK33o&pageId=none
+
+
+
+after hosting --[
+    'domain':'127.0.0.1.8000',
+]-this line changed by hosting domain (in authcart views.py)
+
+

@@ -1,0 +1,310 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Promila Cards- {% block title %}{% endblock title %}</title>
+    <meta content="ecommerce website we deliver cards" name="description" />
+    <meta
+      content="ecommerce"
+      name="amazon,flipkart,selling,online,products,cards"
+    />
+
+    <!-- Favicons -->
+    {% comment %} "{% static 'images/logo-color.png' %}"  {% endcomment %}
+    <link href="{% static 'images/logo-color.png'%}" rel="icon" />
+    <link
+      href="{% static '/assets/img/apple-touch-icon.png"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static '/assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+    <link
+      href="{% static '/assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static '/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static '/assets/vendor/boxicons/css/boxicons.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static '/assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static '/assets/vendor/remixicon/remixicon.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static '/assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Template Main CSS File -->
+    <link href="{% static '/assets/css/style.css' %}" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Bethany
+  * Updated: Jan 09 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container">
+        <div
+          class="header-container d-flex align-items-center justify-content-between"
+        >
+          <div class="logo" >
+             
+            <!-- Uncomment below if you prefer to use an image logo -->
+            {% comment %} <a href="index.html"><img src="{% static 'images/logo-color.png' %}" alt="" class="img-fluid"></a> {% endcomment %}
+            <h1 class="text-light">
+              <a href="/"><span>Promila Cards</span></a>
+            </h1>
+          </div>
+
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto active" href="/">Home</a></li>
+              <li><a class="nav-link scrollto" href="/about">About</a></li>
+              
+              {% comment %} <li><a class="nav-link scrollto" href="/wishlist">Wishlist<i class="fa-solid fa-heart"></i></a></li> {% endcomment %}
+                <li><a class="nav-link scrollto" href="/checkout">Checkout</a></li>
+                
+              <button type="button" class="nav-link scrollto bg-secondary p-3 m-2 text-white" id="popcart"data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" >
+                {% comment %} <i class="fa-solid fa-heart"></i>Wishlist(<span id="cart">0</span>) {% endcomment %}
+                <i class="fa-solid fa-cart-shopping"></i> Cart(<span id="cart">0</span>)
+              </button>
+              
+              <li class="dropdown"><a class="nav-link scrollto" href="/profile">My Profile <i class="fa-regular fa-square-user"></i><i class="bi bi-chevron-down"></i></a>
+                
+              <ul>
+                {% comment %} <li>
+                <a class="nav-link scrollto bg-light " href="/cart"
+                  >Cart</a
+                >
+              </li> {% endcomment %}
+              
+              
+              {% comment %} Orders=checkout {% endcomment %}
+              <li><a class="nav-link scrollto" href="/orders">Orders</a></li></ul></li>
+
+              {% if request.user.is_authenticated %}
+              
+                <li><a href="/auth/logout/">LogOut <i class="fa-solid fa-right-from-bracket"></i></a></li>
+            
+              {% else %}
+              <li class="dropdown"><a class="nav-link scrollto" href="#">SignIn<i class="fa-solid fa-user"></i><i class="bi bi-chevron-down"></i></a>
+              <ul>
+                
+                <li><a href="/auth/signup/">SignUp <i class="fa-solid fa-user"></i></a></li>
+                <li><a href="/auth/login/">LogIn <i class="fa-solid fa-user"></i></a></li>
+              
+              </ul>
+            </li>
+              {% endif %}
+
+              
+                
+              {% comment %} <li class="dropdown">
+                <a href="#"
+                  ><span>SignIn</span> <i class="bi bi-chevron-down"></i
+                ></a>
+                <ul>
+                  <li><a href="/auth/signup/">SignUp</a></li>
+                  <li><a href="/auth/login/">LogIn</a></li>
+                  <li><a href="/auth/logout/">LogOut</a></li>
+                </ul>
+              </li> {% endcomment %}
+
+              <li>
+                <a class="nav-link scrollto bg-success p-3 m-2" href="/contact"
+                  >Contact Us <i class="fa-solid fa-message-middle"></i></a
+                >
+              </li>
+
+              {% comment %}
+              <li>
+                <a class="getstarted scrollto" href="#about">Get Started</a>
+              </li>
+              {% endcomment %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+        <!-- End Header Container -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+      <div
+        class="container text-center position-relative"
+        data-aos="fade-in"
+        data-aos-delay="200"
+      >
+        {% comment %} <h1>Welcome to <strong>Card`s World</strong></h1>
+        <h2>Your New Online Presence with <strong>Promila Cards</strong></h2>
+        <h3>We are team of talented designers making Cards</h3>
+        <a href="" class="btn-get-started scrollto">Shop Now</a> {% endcomment %}
+        {% block content %}
+
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show"
+        role="alert">
+          <strong>{{message}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+        {% endfor %}
+
+        {% endblock content %}
+
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">{% block body %} 
+      
+
+      {% endblock body %}</main>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>Promila Cards</h3>
+              <p>
+                42/3, M.G Road , Baithakkhana<br />
+                Kolkata, West Bengal 700009<br />
+                INDIA <br /><br />
+                <strong>Phone:</strong> +91 82400 16725<br />
+                <strong>Email:</strong> ujjalsaha23@gmail.com<br />
+              </p>
+            </div>
+
+            
+
+            <div class="col-lg-2 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/">Home</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="about">About</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="contact">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Card Design</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Card Manufacture</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Product Management</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              {% comment %}
+              <h4>Join Our Newsletter</h4>
+              <p>
+                Tamen quem nulla quae legam multos aute sint culpa legam noster
+                magna
+              </p>
+              {% endcomment %}
+              <form action="" method="post">
+                <input type="email" name="email" /><input
+                  type="submit"
+                  value="Subscribe"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Promila Cards</span></strong
+            >. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static '/assets/js/main.js' %}"></script>
+  </body>
+</html>
